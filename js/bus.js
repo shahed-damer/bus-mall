@@ -6,7 +6,7 @@ let imgSection =document.getElementById('imgSection');
 let leftImage = document.getElementById('leftImage');
 let centerImage = document.getElementById('centerImage');
 let rightImage = document.getElementById('rightImage');
-let list1 = document.getElementById('list1');
+let results = document.getElementById('results');
 let viewResults = document.getElementById('viewResults');
 
 function ProdectImages(product , srcc){
@@ -112,6 +112,7 @@ ProdectImages.all[rightIndex].click++;
     }
   render();
   counter++;
+//   storage();
 
 } else  if(counter==25) { 
     viewResults.disabled=false
@@ -215,3 +216,20 @@ function bottomChart(){
         }
     });
     }
+
+
+
+
+
+      function storage(){
+          let datm = JSON.stringify( ProdectImages.all);
+          localStorage.setItem('imgeestorage', datm)
+
+      }
+
+      function store(){
+        ProdectImages.all= JSON.parse(localStorage.getItem('imgeestorage'))
+        
+        
+      }
+      store();
